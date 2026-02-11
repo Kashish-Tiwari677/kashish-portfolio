@@ -39,18 +39,45 @@ const FloatingNav = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass-card px-2 py-2"
+
+          /* 🔧 FIX: mobile bottom, desktop top */
+          className="
+            fixed
+            top-6 sm:top-6
+            bottom-4 sm:bottom-auto
+            left-1/2 -translate-x-1/2
+            z-50
+            glass-card
+            px-2 py-2
+            max-w-[95vw]
+            overflow-x-auto
+          "
         >
-          <ul className="flex gap-1">
+          {/* 🔧 FIX: prevent wrapping on mobile */}
+          <ul className="flex gap-1 whitespace-nowrap">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className={`relative px-4 py-2 text-xs font-heading font-medium tracking-wider uppercase rounded-lg transition-colors duration-300 block ${
-                    activeSection === item.href.slice(1)
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  className={`
+                    relative
+                    px-3 sm:px-4
+                    py-2
+                    text-[10px] sm:text-xs
+                    font-heading
+                    font-medium
+                    tracking-wider
+                    uppercase
+                    rounded-lg
+                    transition-colors
+                    duration-300
+                    block
+                    ${
+                      activeSection === item.href.slice(1)
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    }
+                  `}
                 >
                   {activeSection === item.href.slice(1) && (
                     <motion.span
