@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0">
@@ -38,19 +38,27 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-primary font-heading text-sm tracking-[0.3em] uppercase mb-8"
+          className="text-primary font-heading text-xs sm:text-sm tracking-[0.3em] uppercase mb-6 sm:mb-8"
         >
           Full Stack Developer & Graphic Designer
         </motion.p>
 
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold leading-none mb-8 whitespace-nowrap">
+        <h1 className="text-[3rem] sm:text-6xl md:text-8xl lg:text-9xl font-heading font-bold leading-tight mb-6 sm:mb-8 text-center">
           {nameLetters.map((letter, i) => (
             <motion.span
               key={i}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + i * 0.04, duration: 0.5, ease: "easeOut" }}
-              className={letter === " " ? "inline" : "inline-block gradient-text"}
+              transition={{
+                delay: 0.4 + i * 0.04,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className={
+                letter === " "
+                  ? "inline-block"
+                  : "inline-block gradient-text"
+              }
             >
               {letter === " " ? "\u00A0" : letter}
             </motion.span>
@@ -61,17 +69,17 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed"
+          className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 sm:mb-12 font-light leading-relaxed"
         >
-          Crafting digital experiences that blend clean code with stunning visuals.
-          Building the future, one pixel and one line of code at a time.
+          Crafting digital experiences that blend clean code with stunning
+          visuals. Building the future, one pixel and one line of code at a time.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <a href="#projects" className="btn-primary">
             View Work
@@ -93,7 +101,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
