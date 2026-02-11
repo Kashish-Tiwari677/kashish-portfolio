@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex justify-start overflow-hidden"
     >
       {/* 🔥 LOCAL FIX FOR BUTTON BUG */}
       <style>{`
@@ -46,7 +46,7 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-6 pt-20 sm:pt-24 lg:pt-28">
+      <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-6 pt-28 sm:pt-32 lg:pt-36">
         {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
