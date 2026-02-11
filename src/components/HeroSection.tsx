@@ -3,8 +3,6 @@ import { ArrowDown, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
-  const nameLetters = "Kashish Tiwari".split("");
-
   return (
     <section
       id="hero"
@@ -33,48 +31,60 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+      <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-6">
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-primary font-heading text-xs sm:text-sm tracking-[0.3em] uppercase mb-6 sm:mb-8"
+          className="text-primary font-heading text-xs sm:text-sm tracking-[0.35em] uppercase mb-6"
         >
           Full Stack Developer & Graphic Designer
         </motion.p>
 
-        <h1 className="text-[3rem] sm:text-6xl md:text-8xl lg:text-9xl font-heading font-bold leading-tight mb-6 sm:mb-8 text-center">
-          {nameLetters.map((letter, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.4 + i * 0.04,
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-              className={
-                letter === " "
-                  ? "inline-block"
-                  : "inline-block gradient-text"
-              }
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
-          ))}
-        </h1>
+        {/* Name */}
+        <div className="grid gap-2 sm:gap-4">
+          <motion.h1
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
+            className="gradient-text font-heading font-bold leading-none
+                       text-[3rem]
+                       sm:text-6xl
+                       md:text-7xl
+                       lg:text-8xl
+                       xl:text-9xl"
+          >
+            Kashish
+          </motion.h1>
 
+          <motion.h1
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
+            className="gradient-text font-heading font-bold leading-none
+                       text-[3rem]
+                       sm:text-6xl
+                       md:text-7xl
+                       lg:text-8xl
+                       xl:text-9xl"
+          >
+            Tiwari
+          </motion.h1>
+        </div>
+
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 sm:mb-12 font-light leading-relaxed"
+          className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto mt-8 mb-10 font-light leading-relaxed"
         >
           Crafting digital experiences that blend clean code with stunning
           visuals. Building the future, one pixel and one line of code at a time.
         </motion.p>
 
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -85,6 +95,7 @@ const HeroSection = () => {
             View Work
             <ArrowDown className="w-4 h-4" />
           </a>
+
           <a
             href="/Kashish_Tiwari_CV.pdf"
             download
