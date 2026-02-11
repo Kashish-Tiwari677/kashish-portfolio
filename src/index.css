@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 95%;
+
+    --card: 222 40% 8%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 222 40% 8%;
+    --popover-foreground: 210 40% 95%;
+
+    --primary: 190 100% 50%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 260 60% 55%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 190 80% 40%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 20% 16%;
+    --input: 222 20% 16%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.75rem;
+
+    --neon-blue: 190 100% 50%;
+    --neon-purple: 260 60% 55%;
+    --neon-cyan: 180 100% 50%;
+
+    --glass-bg: 222 40% 8%;
+    --glass-border: 222 20% 20%;
+
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 40% 95%;
+    --sidebar-primary: 190 100% 50%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 222 30% 12%;
+    --sidebar-accent-foreground: 210 40% 95%;
+    --sidebar-border: 222 20% 16%;
+    --sidebar-ring: 190 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsl(190 100% 50% / 0.3);
+    color: hsl(210 40% 98%);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-xl border border-glass-border rounded-2xl;
+    box-shadow:
+      0 0 0 1px hsl(var(--glass-border) / 0.3),
+      0 8px 32px hsl(222 47% 5% / 0.5),
+      inset 0 1px 0 hsl(210 40% 95% / 0.05);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500;
+  }
+
+  .glass-card-hover:hover {
+    box-shadow:
+      0 0 0 1px hsl(var(--primary) / 0.2),
+      0 8px 40px hsl(var(--primary) / 0.1),
+      0 20px 60px hsl(222 47% 5% / 0.5),
+      inset 0 1px 0 hsl(210 40% 95% / 0.08);
+    transform: translateY(-4px);
+  }
+
+  .neon-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.2);
+  }
+
+  .neon-border {
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.15), inset 0 0 15px hsl(var(--primary) / 0.05);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--neon-purple)), hsl(var(--neon-cyan)));
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.5), hsl(var(--neon-purple) / 0.3), hsl(var(--neon-cyan) / 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 px-6 md:px-12 lg:px-20;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-heading font-semibold text-sm tracking-wider uppercase transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--neon-purple)));
+    color: hsl(var(--background));
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.2);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-heading font-semibold text-sm tracking-wider uppercase transition-all duration-300 border border-primary/30 text-foreground;
+  }
+
+  .btn-outline:hover {
+    @apply border-primary/60;
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.15);
+    transform: translateY(-2px);
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(hsl(var(--muted-foreground) / 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
