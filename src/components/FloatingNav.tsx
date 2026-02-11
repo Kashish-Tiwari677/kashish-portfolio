@@ -40,10 +40,10 @@ const FloatingNav = () => {
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3 }}
 
-          /* ✅ FIXED POSITIONING */
+          /* ✅ FIX: top on ALL devices */
           className="
             fixed
-            bottom-4 sm:top-6 sm:bottom-auto
+            top-4 sm:top-6
             left-0 right-0 sm:left-1/2
             sm:-translate-x-1/2
             z-50
@@ -54,8 +54,7 @@ const FloatingNav = () => {
             overflow-x-auto
           "
         >
-          {/* ✅ FIX: proper alignment on mobile */}
-          <ul className="flex gap-1 whitespace-nowrap justify-start sm:justify-center">
+          <ul className="flex gap-1 whitespace-nowrap justify-center">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
