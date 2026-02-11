@@ -8,6 +8,21 @@ const HeroSection = () => {
       id="hero"
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden"
     >
+      {/* 🔥 LOCAL FIX FOR BUTTON BUG */}
+      <style>{`
+        .btn-outline {
+          pointer-events: auto;
+        }
+        .btn-outline * {
+          pointer-events: none;
+        }
+        .btn-outline::before,
+        .btn-outline::after {
+          content: none !important;
+          display: none !important;
+        }
+      `}</style>
+
       {/* Background */}
       <div className="absolute inset-0">
         <img
@@ -97,7 +112,7 @@ const HeroSection = () => {
             <ArrowDown className="w-4 h-4 pointer-events-none" />
           </a>
 
-          {/* Download CV – FIXED */}
+          {/* Download CV (FIXED) */}
           <a
             href="/Kashish_Tiwari_CV.pdf"
             download
