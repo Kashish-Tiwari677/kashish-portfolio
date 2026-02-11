@@ -91,18 +91,20 @@ const HeroSection = () => {
           transition={{ delay: 1.5, duration: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <a href="#projects" className="btn-primary">
-            View Work
-            <ArrowDown className="w-4 h-4" />
+          {/* View Work */}
+          <a href="#projects" className="btn-primary cursor-pointer">
+            <span className="pointer-events-none">View Work</span>
+            <ArrowDown className="w-4 h-4 pointer-events-none" />
           </a>
 
+          {/* Download CV – FIXED */}
           <a
             href="/Kashish_Tiwari_CV.pdf"
             download
-            className="btn-outline"
+            className="btn-outline relative flex items-center gap-3 px-6 py-3 cursor-pointer"
           >
-            <Download className="w-4 h-4" />
-            Download CV
+            <Download className="w-4 h-4 pointer-events-none" />
+            <span className="pointer-events-none">Download CV</span>
           </a>
         </motion.div>
       </div>
