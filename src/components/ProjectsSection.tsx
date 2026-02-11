@@ -11,6 +11,14 @@ const projects = [
     color: "from-primary/20 to-neon-purple/20",
     liveLink: "https://video-call-frontend-7qcb.onrender.com",
   },
+   {
+    title: "Portfolio",
+    description:
+      "A modern, responsive portfolio website designed to showcase projects, skills, and experience with a polished user interface and smooth interactions.",
+    tags: ["React", "Typescript"],
+    color: "from-primary/20 to-neon-purple/20",
+    liveLink: "https://kashish-portfolio-xi.vercel.app/",
+  },
   {
     title: "Astrocharm",
     description:
