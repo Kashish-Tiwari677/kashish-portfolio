@@ -64,11 +64,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7, ease: "easeOut" }}
             className="gradient-text font-heading font-bold leading-none
-                       text-[3rem]
-                       sm:text-6xl
-                       md:text-7xl
-                       lg:text-8xl
-                       xl:text-9xl"
+                       text-[3rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
           >
             Kashish
           </motion.h1>
@@ -78,11 +74,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
             className="gradient-text font-heading font-bold leading-none
-                       text-[3rem]
-                       sm:text-6xl
-                       md:text-7xl
-                       lg:text-8xl
-                       xl:text-9xl"
+                       text-[3rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl"
           >
             Tiwari
           </motion.h1>
@@ -106,13 +98,11 @@ const HeroSection = () => {
           transition={{ delay: 1.5, duration: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          {/* View Work */}
           <a href="#projects" className="btn-primary cursor-pointer">
             <span className="pointer-events-none">View Work</span>
             <ArrowDown className="w-4 h-4 pointer-events-none" />
           </a>
 
-          {/* Download CV (FIXED) */}
           <a
             href="/Kashish_Tiwari_CV.pdf"
             download
@@ -122,23 +112,23 @@ const HeroSection = () => {
             <span className="pointer-events-none">Download CV</span>
           </a>
         </motion.div>
-      </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2"
-      >
+        {/* ✅ FIXED: Scroll indicator BELOW buttons (DESKTOP ONLY) */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2, duration: 1 }}
+          className="hidden lg:flex justify-center mt-14"
         >
-          <motion.div className="w-1 h-2 rounded-full bg-primary" />
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2"
+          >
+            <motion.div className="w-1 h-2 rounded-full bg-primary" />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
