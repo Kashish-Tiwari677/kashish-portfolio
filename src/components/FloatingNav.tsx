@@ -27,6 +27,7 @@ const FloatingNav = () => {
         }
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -40,7 +41,7 @@ const FloatingNav = () => {
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3 }}
 
-          /* ✅ FIX: top on ALL devices */
+          /* ✅ FIXED CONTAINER */
           className="
             fixed
             top-4 sm:top-6
@@ -49,19 +50,21 @@ const FloatingNav = () => {
             z-50
             glass-card
             px-4 py-2
+            p-1
             mx-auto
             max-w-[95vw] sm:max-w-fit
             overflow-x-auto
           "
         >
-          <ul className="flex gap-1 whitespace-nowrap justify-center pl-1 pr-1">
+          {/* ✅ FIXED INNER SPACING */}
+          <ul className="flex gap-1 whitespace-nowrap justify-center px-2">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   className={`
                     relative
-                    px-3 sm:px-4
+                    px-4 sm:px-4
                     py-2
                     text-[10px] sm:text-xs
                     font-heading
