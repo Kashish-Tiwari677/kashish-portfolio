@@ -48,13 +48,13 @@ const FloatingNav = () => {
             sm:-translate-x-1/2
             z-50
             glass-card
-            px-3 py-2
+            px-4 py-2
             mx-auto
             max-w-[95vw] sm:max-w-fit
             overflow-x-auto
           "
         >
-          <ul className="flex gap-1 whitespace-nowrap justify-center">
+          <ul className="flex gap-1 whitespace-nowrap justify-center pl-1 pr-1">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
