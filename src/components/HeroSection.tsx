@@ -46,7 +46,7 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-6">
+      <div className="relative z-10 text-center w-full max-w-6xl mx-auto px-6 pt-20 sm:pt-24 lg:pt-28">
         {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
